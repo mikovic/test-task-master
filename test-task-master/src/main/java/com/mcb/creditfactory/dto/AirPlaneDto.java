@@ -6,21 +6,23 @@ import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
-import java.math.BigDecimal;
+import javax.persistence.*;
 import java.util.ArrayList;
 import java.util.List;
 
 @Data
 @NoArgsConstructor
 @AllArgsConstructor
-@JsonTypeName("car")
-public class CarDto implements Collateral {
+@JsonTypeName("airplane")
+public class AirPlaneDto implements Collateral {
     private Long id;
     private String brand;
     private String model;
-    private Double power;
+    private String manufacturer;
     private Short year;
-    private List<Assessment> assessments ;
+    private Short fuelCapacity;
+    private int seats;
+    private List<Assessment> assessments;
 
     public List<Assessment> getAssessments() {
         if (this.assessments == null){
@@ -28,4 +30,5 @@ public class CarDto implements Collateral {
         }
         return assessments;
     }
+
 }
