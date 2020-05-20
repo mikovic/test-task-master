@@ -1,35 +1,33 @@
-package com.mcb.creditfactory.service.car;
+package com.mcb.creditfactory.service.airplane;
 
-import com.mcb.creditfactory.dto.CarDto;
+import com.mcb.creditfactory.dto.AirPlaneDto;
 import com.mcb.creditfactory.external.CollateralObject;
 import com.mcb.creditfactory.external.CollateralType;
 import lombok.AllArgsConstructor;
 
 import java.math.BigDecimal;
 import java.time.LocalDate;
-
 @AllArgsConstructor
-public class CarAdapter implements CollateralObject {
-    private CarDto car;
+public class AirPlaneAdapter implements CollateralObject {
 
+    private AirPlaneDto plane;
     @Override
     public BigDecimal getValue() {
-        return car.getAssessments().get(0).getValue();
+        return plane.getAssessments().get(0).getValue();
     }
 
     @Override
     public Short getYear() {
-        return car.getYear();
+        return plane.getYear();
     }
 
     @Override
     public LocalDate getDate() {
-
-        return car.getAssessments().get(0).getAssessedDate().toLocalDate();
+        return plane.getAssessments().get(0).getAssessedDate().toLocalDate();
     }
 
     @Override
     public CollateralType getType() {
-        return CollateralType.CAR;
+        return CollateralType.AIRPLANE;
     }
 }
